@@ -4,7 +4,6 @@ import data
 from utils import rand
 
 
-
 CITY = lambda: random.choice([
     " ".join([rand(data.CITY_PREFIX), "".join([rand(data.FIRST_NAMES), rand(data.CITY_SUFFIX)])]),
     " ".join([rand(data.CITY_PREFIX), rand(data.FIRST_NAMES)]),
@@ -21,6 +20,10 @@ COMPANY_NAME = lambda: random.choice([
     "".join([rand(data.COMPANY_NAME_PREFIX), rand(data.COMPANY_NAME_SUFFIX)]),
     "".join([rand(data.COMPANY_NAME_PREFIX).capitalize(), rand(data.COMPANY_NAME_SUFFIX)]),
     "".join([rand(data.COMPANY_NAME_PREFIX).capitalize(), rand(data.COMPANY_NAME_SUFFIX).capitalize()]),
-    "%s %s" % ("".join([rand(data.COMPANY_NAME_PREFIX).capitalize(), rand(data.COMPANY_NAME_SUFFIX)]), rand(data.COMPANY_NAME_EXTRA).capitalize())
+    "%s %s" % ("".join([rand(data.COMPANY_NAME_PREFIX).capitalize(), rand(data.COMPANY_NAME_SUFFIX)]),
+               rand(data.COMPANY_NAME_EXTRA).capitalize())
 ])
 
+GENDER = lambda: random.choice(data.GENDER)
+
+CURRENCY = lambda: random.choice(data.CURRENCY)

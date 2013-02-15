@@ -1,5 +1,5 @@
 """A library for generating fake user data"""
-VERSION = (0,0,4)
+VERSION = (0, 0, 4)
 __version__ = ".".join(map(str, VERSION))
 __author__ = "Dylan Clendenin"
 __contact__ = "dylan.clendenin@gmail.com"
@@ -23,11 +23,12 @@ def uses_names(func):
             self._get_names()
         self._name_accesses.add(func.__name__)
         return func(self)
+
     _wrapped.__name__ = func.__name__
     return _wrapped
 
-class Faker(object):
 
+class Faker(object):
     def __init__(self):
         self._names = None
         self._name_accesses = set()
@@ -66,10 +67,10 @@ class Faker(object):
 
     def street_address(self):
         return numerify(random.choice(["##### %s" % patterns.STREET_NAME(),
-                                         "#### %s Ave." % patterns.STREET_NAME(),
-                                         "### %s St." % patterns.STREET_NAME(),
-                                         "### %s %s" % (patterns.STREET_NAME(), secondary_address()),
-                                         "#### %s %s" % (patterns.STREET_NAME(), secondary_address())]))
+                                       "#### %s Ave." % patterns.STREET_NAME(),
+                                       "### %s St." % patterns.STREET_NAME(),
+                                       "### %s %s" % (patterns.STREET_NAME(), secondary_address()),
+                                       "#### %s %s" % (patterns.STREET_NAME(), secondary_address())]))
 
     def city(self):
         return patterns.CITY()
@@ -91,3 +92,14 @@ class Faker(object):
             paragraph.append(w)
         return " ".join(paragraph)
 
+    def gender(self):
+        return patterns.GENDER()
+
+    def currency(self):
+        return patterns.CURRENCY()
+
+    def country_code(self):
+        return rand(data.COUNTRY_CODES)
+
+    def percentage(self):
+        return random.randrange(0, 100)
